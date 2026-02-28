@@ -38,7 +38,7 @@ bool czyPierwsza(int n) {
 int ileRozkladow(int n) {
 	int licznik = 0;
 
-	for (int p = 2; p <= n / 2; p++) {
+	for (int p = 2; p <= n / 2; p++) { //  n/2, bo po przekroczeniu połowy zaczęlibyśmy liczyć te same pary drugi raz
 		if (czyPierwsza(p) && czyPierwsza(n - p))
 			licznik++;
 	}
@@ -87,6 +87,10 @@ int main()
 
 	cout << maxLiczba << " " << maxRozklady << endl;
 	cout << minLiczba << " " << minRozklady << endl;
-
+	
+	//zad. 8
+	cout << "zad. 8" << endl;
+	cout<<stoi("3211", nullptr, 4)+ stoi("2322", nullptr, 4)<<endl;
+	cout << stoi("3211", nullptr, 4) - stoi("2322", nullptr, 4) << endl;
 	return 0;
 }
