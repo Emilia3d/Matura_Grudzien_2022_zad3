@@ -5,8 +5,8 @@
 
 using namespace std;
 
-//ifstream plik("liczby_przyklad.txt");
-ifstream plik("liczby.txt");
+ifstream plik("liczby_przyklad.txt");
+//ifstream plik("liczby.txt");
 
 bool SITO[100000];
 void SitoEratostenesa(int n) {
@@ -64,16 +64,20 @@ int main()
 	}
 	cout << ilePierw << endl;
 
+	plik.clear();
+	plik.seekg(0);
 	//zad. 3.3
 	cout << "zad. 3.3" << endl;
 
+	
 	int maxLiczba = 0, maxRozklady = 0;
 	int minLiczba = 0, minRozklady = 1000000;
 
 	while (plik >> x) {
 
 		int ile = ileRozkladow(x);
-
+		//cout << ile << endl;
+	
 		if (ile > maxRozklady) {
 			maxRozklady = ile;
 			maxLiczba = x;
@@ -88,6 +92,17 @@ int main()
 	cout << maxLiczba << " " << maxRozklady << endl;
 	cout << minLiczba << " " << minRozklady << endl;
 	
+	plik.clear();
+	plik.seekg(0);
+
+	//zad. 3.4
+	cout << "zad. 3.4" << endl;
+
+	while (plik >> x) {
+		//string dzies = to_string(x);
+		cout << hex << x<<endl;
+	}
+		//cout << ile << endl;
 	//zad. 8
 	cout << "zad. 8" << endl;
 	cout<<stoi("3211", nullptr, 4)+ stoi("2322", nullptr, 4)<<endl;
