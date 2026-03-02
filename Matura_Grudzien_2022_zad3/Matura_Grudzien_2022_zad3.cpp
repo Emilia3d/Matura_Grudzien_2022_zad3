@@ -2,11 +2,14 @@
 #include <fstream>
 #include <vector>
 #include <string>
+#include <iomanip>
+#include <algorithm>
+#include <sstream>
 
 using namespace std;
 
-ifstream plik("liczby_przyklad.txt");
-//ifstream plik("liczby.txt");
+//ifstream plik("liczby_przyklad.txt");
+ifstream plik("liczby.txt");
 
 bool SITO[100000];
 void SitoEratostenesa(int n) {
@@ -97,14 +100,37 @@ int main()
 
 	//zad. 3.4
 	cout << "zad. 3.4" << endl;
+	int liczba;
+	vector<char> cyfry;
 
-	while (plik >> x) {
-		//string dzies = to_string(x);
-		cout << hex << x<<endl;
+	while (plik >> liczba) {
+
+		if (liczba == 0) {
+			cyfry.push_back('0');
+		}
+
+		while (liczba > 0) {
+			int reszta = liczba % 16;
+
+			if (reszta < 10)
+				cyfry.push_back('0' + reszta);
+			else
+				cyfry.push_back('A' + (reszta - 10));
+
+			liczba /= 16;
+		}
+	}
+
+	vector<char>szesnast = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
+
+	for (auto c : szesnast) {
+		cout << c << ":" << count(cyfry.begin(), cyfry.end(), c) << endl;
 	}
 		//cout << ile << endl;
 	//zad. 8
 	cout << "zad. 8" << endl;
+	cout << setbase(4) ;
+	//cout << 3211+2322 << endl;
 	cout<<stoi("3211", nullptr, 4)+ stoi("2322", nullptr, 4)<<endl;
 	cout << stoi("3211", nullptr, 4) - stoi("2322", nullptr, 4) << endl;
 	return 0;
