@@ -126,7 +126,7 @@ int main()
 	for (auto c : szesnast) {
 		cout << c << ":" << count(cyfry.begin(), cyfry.end(), c) << endl;
 	}
-		//cout << ile << endl;
+
 	//zad. 8
 	cout << "zad. 8" << endl;
 	cout << setbase(4) ;
